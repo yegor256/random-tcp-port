@@ -1,11 +1,11 @@
 Reserve a random TCP port on Unix system. First, compile
 it using `make`:
 
-> make
+> make clean && make
 
 Then, run without arguments:
 
-> reserve
+> ./reserve
 
 You should get a random TCP port number in standard output.
 
