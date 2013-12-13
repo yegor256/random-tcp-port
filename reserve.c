@@ -25,6 +25,8 @@
 #include <arpa/inet.h>
 #include <unistd.h>
 
+// Allocate a new TCP server socket, and return
+// its handler
 int allocate() {
     int sock = socket(AF_INET, SOCK_STREAM, IPPROTO_TCP);
     if (sock < 0) {
@@ -40,6 +42,8 @@ int allocate() {
     return sock;
 }
 
+// Check whether the provided TCP port is available
+// at the moment and return 1 if it's avaiable, zero otherwise
 int available(int port) {
     int sock = allocate();
     struct sockaddr_in addr;
@@ -51,6 +55,9 @@ int available(int port) {
     return error == 0;
 }
 
+// Main entry point to the tool. It tries to allocate a new
+// port in 5000-5099 interval. If all ports are busy in this interval,
+// it will try to allocate any port available in 1024-65535 range.
 int main() {
     struct timeval tv;
     gettimeofday(&tv, 0);
@@ -58,8 +65,8 @@ int main() {
     struct sockaddr_in addr;
     int attempts;
     int port;
-    for (attempts = 0; attempts < 50; ++attempts) {
-        port = 3350 + rand() % 100;
+    for (attempts = 0; attempts < 100; ++attempts) {
+        port = 5000 + rand() % 100;
         if (available(port)) {
             printf("%d\n", port);
             return 0;
