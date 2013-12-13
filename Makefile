@@ -17,4 +17,4 @@ reserve: reserve.c
 	gcc -o reserve reserve.c
 
 clean:
-	rm reserve
+	rm -f reserve
