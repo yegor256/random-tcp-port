@@ -1,4 +1,4 @@
-Reserve a random TCP port on Unix system. First, compile
+Reserve a random TCP port on POSIX-compatible system (Linux, Mac OS, Windows, etc). First, compile
 it using `make`:
 
 > make clean && make
