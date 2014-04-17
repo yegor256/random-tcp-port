@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/yegor256/random-tcp-port.svg?branch=master)](https://travis-ci.org/yegor256/random-tcp-port)
+
 Reserve a random TCP port on POSIX-compatible system (Linux, Mac OS, Windows, etc). First, compile
 it using `make`:
 
