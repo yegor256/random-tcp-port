@@ -1,3 +1,4 @@
 script:
+  - make clean
   - make
   - ./reserve
