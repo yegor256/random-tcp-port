@@ -1,4 +1,4 @@
-Reserve a random TCP port on Unix system. First, compile
+Reserve a random TCP port on POSIX-compatible system (Linux, Mac OS, Windows, etc). First, compile
 it using `make`:
 
 > make clean && make
@@ -20,3 +20,7 @@ to submit a pull request :)
 ## License
 
 Licensed under the Apache License, Version 2.0.
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/yegor256/random-tcp-port/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
