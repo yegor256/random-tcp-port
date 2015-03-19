@@ -13,8 +13,19 @@
 # limitations under the License.
 #
 
-reserve: reserve.c
-	gcc -o reserve reserve.c
+all: reserve cpplint
+
+reserve: reserve.cpp
+	gcc -o reserve reserve.cpp
+
+cpplint: reserve.cpp target
+	wget -N http://google-styleguide.googlecode.com/svn/trunk/cpplint/cpplint.py -O target/cpplint.py
+	python target/cpplint.py reserve.cpp
+
+target:
+	mkdir target
 
 clean:
 	rm -f reserve
+	rm -f cpplint.py
+

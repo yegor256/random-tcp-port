@@ -65,8 +65,9 @@ int main() {
     struct sockaddr_in addr;
     int attempts;
     int port;
+    unsigned int seed = 0;
     for (attempts = 0; attempts < 100; ++attempts) {
-        port = 5000 + rand() % 100;
+        port = 5000 + rand_r(&seed) % 100;
         if (available(port)) {
             printf("%d\n", port);
             return 0;
