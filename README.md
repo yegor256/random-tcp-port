@@ -25,6 +25,7 @@ Even though this tool is really small, it uses all possible open source
 static analysis tools I managed to find on the market, including:
 
  * [cpplint](http://en.wikipedia.org/wiki/Cpplint)
+ * [cppcheck](http://cppcheck.sourceforge.net/)
 
 If you know any others, feel free to submit a pull request.
 
