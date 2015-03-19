@@ -55,6 +55,17 @@ int available(int port) {
     return error == 0;
 }
 
+// Sleep for this amount of milliseconds
+void sleep(int msec) {
+    struct timespec tim, tim2;
+    tim.tv_sec = 0;
+    tim.tv_nsec = msec * 1000000L;
+    if (nanosleep(&tim , &tim2) < 0) {
+        printf("Nano sleep system call failed \n");
+        exit(-1);
+    }
+}
+
 // Main entry point to the tool. It tries to allocate a new
 // port in 5000-5099 interval. If all ports are busy in this interval,
 // it will try to allocate any port available in 1024-65535 range.
@@ -64,10 +75,8 @@ int main() {
     srand(tv.tv_usec);
     struct sockaddr_in addr;
     int attempts;
-    int port;
-    unsigned int seed = 0;
     for (attempts = 0; attempts < 100; ++attempts) {
-        port = 5000 + rand_r(&seed) % 100;
+        int port = 5000 + rand() % 100;
         if (available(port)) {
             printf("%d\n", port);
             return 0;
@@ -76,7 +85,7 @@ int main() {
     socklen_t len = sizeof(addr);
     addr.sin_port = 0;
     while (addr.sin_port < 1024) {
-        usleep(10);
+        sleep(10);
         if (++attempts > 500) {
             fprintf(stderr, "failed to reseve a port\n");
             return -1;

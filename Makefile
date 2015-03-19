@@ -13,14 +13,17 @@
 # limitations under the License.
 #
 
-all: reserve cpplint
+all: reserve cpplint cppcheck
 
 reserve: reserve.cpp
 	gcc -o reserve reserve.cpp
 
 cpplint: reserve.cpp target
 	wget -N http://google-styleguide.googlecode.com/svn/trunk/cpplint/cpplint.py -O target/cpplint.py
-	python target/cpplint.py reserve.cpp
+	python target/cpplint.py --filter=-runtime/threadsafe_fn reserve.cpp
+
+cppcheck: reserve.cpp
+	cppcheck . --suppress=missingIncludeSystem --std=posix --enable=all
 
 target:
 	mkdir target
