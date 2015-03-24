@@ -1,5 +1,5 @@
 install:
-  - apt-get install cppcheck
+  - sudo apt-get install cppcheck
 script:
   - make clean
   - make
