@@ -6,5 +6,5 @@ addons:
     - cppcheck
 script:
   - make clean
-  - make
+  - make reserve
   - ./reserve
