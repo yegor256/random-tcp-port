@@ -1,5 +1,9 @@
-install:
-  - sudo apt-get install cppcheck
+language: c++
+sudo: false
+addons:
+  apt:
+    packages:
+    - cppcheck
 script:
   - make clean
   - make
