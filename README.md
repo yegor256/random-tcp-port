@@ -19,8 +19,6 @@ with a non-zero code (255) and print an error to stderr.
 None of these parameters are configurable at the moment. You're welcome
 to submit a pull request :)
 
-## Static Analysis
-
 Even though this tool is really small, it uses all possible open source
 static analysis tools I managed to find on the market, including:
 
@@ -28,11 +26,3 @@ static analysis tools I managed to find on the market, including:
  * [cppcheck](http://cppcheck.sourceforge.net/)
 
 If you know any others, feel free to submit a pull request.
-
-## License
-
-Licensed under the Apache License, Version 2.0.
-
-
-[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/yegor256/random-tcp-port/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
-
